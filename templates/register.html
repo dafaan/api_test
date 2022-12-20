@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<br><br>
+<div class="card single-accordion">
+    <div class="more-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="section-title">	
+                        <br><br><br>
+                        <h3><span class="orange-text">Sign</span> Up</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- check out section -->
+<div class="checkout-section mb-150" style="margin-top: -70px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="checkout-accordion-wrap">
+                    <div class="accordion" id="accordionExample">   
+                        <div class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="billing-address-form">
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        {% for mssg in messages %}
+                                        <div><h5>{{mssg}}</h5></div>
+                                        {% endfor %}
+                                        <p><input type="text" placeholder="firstname" name="firstname"></p>
+                                        <p><input type="text" placeholder="lastname" name="lastname"></p>
+                                        <p><input type="email" placeholder="email" name="email"></p>
+                                        <p><input type="password" placeholder="password" name="password"></p>
+                                        <input type="submit" name="submit" value="signup">
+                                    </form>          
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end check out section -->
+{% endblock %}
